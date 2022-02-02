@@ -1,14 +1,10 @@
-const csv = require('csv-parser');
-const fs = require('fs');
+const {load} = require('csv-load-sync');
+const csv = load('coin_Bitcoin.csv');
+const csv2 = load('coin_Dogecoin.csv');
+const csv3 = load('coin_Ethereum.csv')
 
-let a = []
-fs.createReadStream('coin_Bitcoin.csv')
-  .pipe(csv())
-  .on('data', (row) => {
-    a.push(row);
-  })
-  .on('end', () => {
-    console.log('CSV file successfully processed');
-  });
+console.log(csv)
+console.log(csv2)
+console.log(csv3)
 
 
